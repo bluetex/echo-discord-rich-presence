@@ -1,6 +1,8 @@
 This project will allow you to produce Rich Presence updates to your Discord user account while you're in Echo VR games.
 It's able to see Public and Private matches, the last scored (mouse over small disc icon), and game score (mouse over large disc icon). It will also show the game clock left and will stop when game play stops. 
 
+Echo VR Arena support only right now.
+
 
 # Requirements
 Python3
