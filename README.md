@@ -13,12 +13,7 @@ from io import BytesIO
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
-Discord APP Dev
-Go to https://discord.com/developers/applications 
-Register a new application
--- populate your ClientID in the discord_rich.py on line 12
--- on the "Art Assets" > "Rich Presence Assets" section of discord applications... add 3 images from this repo: disc, disc-orange, disc-blue
-
 On your computer, you must have Discord (duh), Echo VR (again duh)
 Once both are running, click the discord_rich.py to start updating rich presence in discord.  This will ONLY update every 15 seconds.
 
+Your discord ID will have to be whitelisted to use the Rich presence in this format (DM Discord Newt0n#0808 to be added to the whitelist)
