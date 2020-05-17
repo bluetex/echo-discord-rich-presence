@@ -6,6 +6,13 @@ It's able to see Public and Private matches, the last scored (mouse over small d
 Python3
 pip install pypresence
 
+other modules used are: 
+import time, os, pycurl, re, json
+from pypresence import Presence
+from io import BytesIO
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
+
 Discord APP Dev
 Go to https://discord.com/developers/applications 
 Register a new application
