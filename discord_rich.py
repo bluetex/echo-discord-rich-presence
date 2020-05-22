@@ -1,10 +1,6 @@
-from pypresence import Presence
-import time
-import os
-import pycurl
+import time, os, pycurl, re, json
 from io import BytesIO
-import re
-import json
+from pypresence import Presence
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
