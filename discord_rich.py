@@ -9,7 +9,14 @@ client_id = '707734354910249054'  # Fake ID, put your real one here
 RPC = Presence(client_id)  # Initialize the client class
 RPC.connect() # Start the handshake loop
 
-print(RPC.update(state="Checking Status...", details="Logging in.", large_image="disc", large_text="Echo Disk"))
+#### setup reusable rpc call
+def rp_update(rp_status):
+  print(RPC.update(rp_status))  # Set the presence
+#### set value and call function
+rp_base='state="Checking Status...", details="Logging in.", large_image="disc", large_text="Echo Disk"'
+rp_update(rp_base)
+
+#print(RPC.update(state="Checking Status...", details="Logging in.", large_image="disc", large_text="Echo Disk"))
 
 req = Request("http://localhost:6721/session")
 
