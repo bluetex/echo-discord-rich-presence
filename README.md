@@ -18,4 +18,3 @@ from urllib.error import URLError, HTTPError
 On your computer, you must have Discord (duh), Echo VR (again duh)
 Once both are running, click the discord_rich.py to start updating rich presence in discord.  This will ONLY update every 15 seconds.
 
-Your discord ID will have to be whitelisted to use the Rich presence in this format (DM Discord Newt0n#0808 to be added to the whitelist)
