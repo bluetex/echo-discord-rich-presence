@@ -11,7 +11,7 @@ RPC.connect() # Start the handshake loop
 
 print(RPC.update(state="Checking Status...", details="Logging in.", large_image="disc", large_text="Echo Disk"))
 
-req = Request("http://ipaddress:6721/session")
+req = Request("http://127.0.0.1:6721/session")
 
 while True:
     while True:
@@ -41,7 +41,7 @@ while True:
     #### save output to out.json curl the local api for the json payload
     with open('out.json', 'wb') as f:
         c = pycurl.Curl()
-        c.setopt(c.URL, 'http://ipaddress:6721/session')
+        c.setopt(c.URL, 'http://127.0.0.1:6721/session')
         c.setopt(c.WRITEDATA, f)
         c.perform()
         c.close()    
