@@ -1,4 +1,4 @@
-import time, os, pycurl, re, json
+import time, os, re, json
 from io import BytesIO
 from pypresence import Presence
 from urllib.request import Request, urlopen
@@ -11,11 +11,12 @@ RPC.connect() # Start the handshake loop
 
 print(RPC.update(state="Checking Status...", details="Logging in.", large_image="disc", large_text="Echo Disk"))
 
-req = Request("http://127.0.0.1:6721/session")
+
 
 while True:
-    while True:
+    while True: 
         try:
+            req = Request("http://127.0.0.1:6721/session")
             response = urlopen(req)
         except HTTPError as e:
             print('The server couldn\'t fulfill the request.')
@@ -25,11 +26,13 @@ while True:
             print('We failed to reach a server.')
             print('Reason: ', e.reason)        
             time.sleep(1)
-        else:
-            # everything is fine
+        else: 
+            res_body = response.read()
+            data = json.loads(res_body.decode("utf-8"))
+            print(data)
+            #### prevent null status for details field
             break
-        
-    #print("We broke free")
+
 
 #### api only allows updates every 15 seconds
 #time.sleep(15) 
@@ -38,21 +41,7 @@ while True:
     #### prevent null status for details field
         new_status = "Checking status"    
 
-    #### save output to out.json curl the local api for the json payload
-    with open('out.json', 'wb') as f:
-        c = pycurl.Curl()
-        c.setopt(c.URL, 'http://127.0.0.1:6721/session')
-        c.setopt(c.WRITEDATA, f)
-        c.perform()
-        c.close()    
-        f = open('out.json', 'r')
-        content = f.read()
-        f.close()
-        
-#### we open the file to grab values        
-    f = open('out.json',)
-    data = json.load(f)
-
+    
 #### grab values from the json payload (values are inside data[""]
 #### not in game session data here
     match_type = data["match_type"]
