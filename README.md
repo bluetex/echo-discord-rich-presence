@@ -9,9 +9,8 @@ Python3
 pip install pypresence
 
 other modules used are: 
-import time, os, pycurl, re, json
+import time, json
 from pypresence import Presence
-from io import BytesIO
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
