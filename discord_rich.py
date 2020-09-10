@@ -1,5 +1,4 @@
-import time, os, re, json
-from io import BytesIO
+import time, json
 from pypresence import Presence
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
@@ -54,7 +53,7 @@ while True:
     if game_mode == "match":
         game_clock = data["game_clock"]
     
-        clock = data["game_clock_display"]
+        clock = str(data["game_clock_display"])
     
         #### we have to take the underscores off the match type and status field (requires a new var)
         status = data["game_status"]
@@ -106,14 +105,14 @@ while True:
     #### end match data
     #### update rich presense
     if game_mode == "match" and new_status == "Playing":
-        print(RPC.update(state=game, details=new_status, large_image="disc", large_text="Score: blue-" + bluescore + " orange-" + orangescore, small_image=disc_color, small_text="Last score by : " + person_scored, end=game_time  ))  # Set the presence
+        print(RPC.update(state=game, details=new_status, large_image="disc", large_text="Score: orange-" + orangescore + " blue-" + bluescore, small_image=disc_color, small_text="Last score by : " + person_scored, end=game_time  ))  # Set the presence
     elif game_mode == "match" and new_status != "Playing":
-        print(RPC.update(state=game, details=new_status, large_image="disc", large_text="Score: blue-" + bluescore + " orange-" + orangescore, small_image=disc_color, small_text="Last score by : " + person_scored  ))
+        print(RPC.update(state=game, details=new_status, large_image="disc", large_text="Score: orange-" + orangescore + " blue-" + bluescore, small_image=disc_color, small_text="Last score by : " + person_scored  ))
     else:
         print(RPC.update(details="In Lobby", large_image="disc", large_text="Echo Disk"))
 
 ####close the connections
-    f.close()
+
         
     
     time.sleep(15) # Can only update rich presence every 15 seconds
